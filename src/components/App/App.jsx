@@ -61,7 +61,7 @@ export class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
+    const { filter, contacts } = this.state;
     const visibleContacts = this.getVisibleContacts();
     return (
       <Container>
@@ -70,10 +70,14 @@ export class App extends Component {
           <ContactForm onSubmit={this.formSubmitHandler} />
           <h2>Contacts</h2>
           <Filter value={filter} onChange={this.changeFilter} />
-          <ContactList
-            contacts={visibleContacts}
-            onDeleteContact={this.deleteConatact}
-          />
+          {contacts.length > 0 ? (
+            <ContactList
+              contacts={visibleContacts}
+              onDeleteContact={this.deleteConatact}
+            />
+          ) : (
+            <p>No contacts</p>
+          )}
         </div>
       </Container>
     );
