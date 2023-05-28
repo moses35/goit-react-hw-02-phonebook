@@ -41,11 +41,9 @@ export class App extends Component {
     const normalizaName = data.name.toLocaleLowerCase();
 
     //check for duplicate name
-    const result = contacts.find(contact => {
-      if (normalizaName === contact.name.toLocaleLowerCase()) {
-        return true;
-      }
-    });
+    const result = contacts.find(
+      contact => normalizaName === contact.name.toLocaleLowerCase()
+    );
 
     //checking if find() return 'object'
     if (typeof result === 'object') {
