@@ -50,7 +50,7 @@ export class ContactForm extends Component {
           required
           value={this.state.number}
           onChange={this.handleChange}
-          htmlFor={this.InputNumber}
+          id={this.InputNumber}
         />
         <button type="submit">Add contact</button>
       </Form>
